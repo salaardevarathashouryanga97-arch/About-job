@@ -1,0 +1,240 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Little Surprise for Maya</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Trebuchet MS', sans-serif;
+  background: linear-gradient(135deg, #ffe0ed, #fff1f5, #f6dcff);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 25px 15px;
+  color: #984866;
+  overflow-x: hidden;
+}
+
+.container {
+  width: 100%;
+  max-width: 650px;
+  text-align: center;
+}
+
+.heading {
+  font-size: 36px;
+  color: #ce4e83;
+  margin-bottom: 12px;
+}
+
+.subtitle {
+  font-size: 19px;
+  margin-bottom: 28px;
+}
+
+.card {
+  background: white;
+  border-radius: 35px;
+  padding: 45px 25px;
+  box-shadow: 0 15px 40px #e7a9c333;
+}
+
+.envelope {
+  font-size: 90px;
+  margin: 15px 0 35px;
+}
+
+h1 {
+  color: #ce4e83;
+  font-size: 38px;
+}
+
+p {
+  font-size: 19px;
+  line-height: 1.8;
+}
+
+button {
+  margin-top: 30px;
+  padding: 18px 35px;
+  border: none;
+  border-radius: 50px;
+  background: #d9578b;
+  color: white;
+  font-size: 19px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #bd3e75;
+  transform: scale(1.05);
+}
+
+.message {
+  display: none;
+  animation: appear 1s ease;
+}
+
+.message p {
+  margin: 22px 0;
+}
+
+.highlight {
+  color: #d9578b;
+  font-weight: bold;
+}
+
+.footer {
+  color: #c28da6;
+  font-size: 15px;
+  margin-top: 25px;
+}
+
+.butterfly {
+  position: fixed;
+  bottom: -60px;
+  font-size: 30px;
+  pointer-events: none;
+  z-index: 10;
+  animation: fly 5s ease-in-out forwards;
+}
+
+@keyframes fly {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 0;
+  }
+  15% { opacity: 1; }
+  50% {
+    transform: translate(60px, -55vh) rotate(25deg);
+  }
+  100% {
+    transform: translate(-50px, -115vh) rotate(-25deg);
+    opacity: 0;
+  }
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media(max-width: 480px) {
+  .heading { font-size: 30px; }
+  h1 { font-size: 31px; }
+  .card { padding: 35px 20px; }
+  p { font-size: 17px; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <h1 class="heading">About-my-job</h1>
+  <div class="subtitle">A Little Surprise for You</div>
+
+  <div class="card">
+
+    <div id="welcome">
+
+      <div class="envelope">✉️</div>
+
+      <h1>Hey Maya! 🌸</h1>
+
+      <hr style="border:1px solid #f4e5ec">
+
+      <p>Someone has a little message for you...</p>
+
+      <button onclick="openSurprise()">
+        Open your surprise 🫰
+      </button>
+
+    </div>
+
+    <div class="message" id="message">
+
+      <h1>The Lid = Delete 😂</h1>
+
+      <p>
+        Please smile, because your smile adds to your beauty!
+      </p>
+
+      <p>
+        They say smiling can boost your mood,
+        reduce stress and make life happier.
+      </p>
+
+      <p>
+        Don't smile for other people.
+        Please smile for yourself.
+      </p>
+
+      <p class="highlight">
+        You deserve your own happiness, so never
+        forget to give yourself a reason to smile!
+      </p>
+
+      <p>
+        You don't have to smile every time,
+        but never forget how beautiful your smile is!
+      </p>
+
+      <h1 style="font-size:27px">
+        Keep smiling, Maya! 😊🫰
+      </h1>
+
+      <div class="footer">
+        A little reminder, just for you.
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<script>
+function openSurprise() {
+
+  document.getElementById("welcome").style.display = "none";
+
+  document.getElementById("message").style.display = "block";
+
+  // Butterflies fly for 5 seconds
+  for (let i = 0; i < 15; i++) {
+
+    setTimeout(() => {
+
+      const butterfly = document.createElement("div");
+
+      butterfly.className = "butterfly";
+      butterfly.innerHTML = "🦋";
+
+      butterfly.style.left = Math.random() * 90 + "vw";
+      butterfly.style.animationDelay = "0s";
+
+      document.body.appendChild(butterfly);
+
+      setTimeout(() => {
+        butterfly.remove();
+      }, 5100);
+
+    }, i * 330);
+
+  }
+}
+</script>
+
+</body>
+</html>
